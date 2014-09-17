@@ -20,3 +20,7 @@ group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
 end
+
+gem 'saas'
+gem 'haml'
+gem 'turbolinks'
