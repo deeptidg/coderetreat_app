@@ -1,3 +1,4 @@
 --color
 --require spec_helper
---warnings
+
+-I app/coderetreat_app
