@@ -1,4 +1,4 @@
-require 'coderetreat_app/coderetreats/presenters/collection'
+require 'coderetreats/presenters/collection'
 
 describe CoderetreatApp::Coderetreats::Presenters::Collection do
   context "getting the coderetreats grouped by status" do
