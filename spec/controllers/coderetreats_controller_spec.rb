@@ -19,6 +19,5 @@ describe CoderetreatsController do
       get :running_today
       expect(assigns(:coderetreats)).to be(coderetreats_presenter)
     end
-
-end
+  end
 end
