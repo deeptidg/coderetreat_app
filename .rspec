@@ -2,3 +2,4 @@
 --require spec_helper
 
 -I app/coderetreat_app
+-I app/models
