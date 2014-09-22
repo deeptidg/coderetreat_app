@@ -43,3 +43,30 @@ Then(/^I should see that the coderetreat is in session$/) do
   puts "The coderetreat status after update is #{@coderetreat.status} for id #{@coderetreat.id}"
   expect(page).to have_css(".in_session .coderetreat", text: @coderetreat.location)
 end
+
+Given(/^a coderetreat that is in session$/) do
+  @coderetreat = Coderetreat.create! status: "in_session", location: "Chicago"
+end
+
+When(/^I start a break for the coderetreat$/) do
+  visit edit_status_coderetreat_url(@coderetreat)
+  click_on "Start Break"
+end
+
+When(/^I go to running coderetreats display page$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see that the coderetreat is on break$/) do
+  expect(page).to have_css(".on_break .coderetreat", text: @coderetreat.location)
+end
+
+
+
+
+
+
+
+
+
+

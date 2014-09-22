@@ -12,7 +12,7 @@ module CoderetreatApp
           new(coderetreats)
         end
 
-        ["not_started", "in_session"].each do |status|
+        ["not_started", "in_session", "on_break"].each do |status|
           define_method(status) do |&block|
             in_status(status, &block)
           end
