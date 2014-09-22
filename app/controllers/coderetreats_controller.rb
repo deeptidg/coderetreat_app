@@ -1,7 +1,5 @@
 require 'coderetreats'
-#require 'coderetreats/presenters/collection'
-
-#Coderetreat = Struct.new :status, :location
+require 'coderetreats/status'
 
 class CoderetreatsController < ApplicationController
   def running_today   
@@ -13,6 +11,7 @@ class CoderetreatsController < ApplicationController
   end
 
   def update_status
+    puts "The request is received by controller with id = #{coderetreat_id} and new_status = #{params[:new_status]}"
     CoderetreatApp::Coderetreats::Status.update_to(coderetreat_id, params[:new_status])
     redirect_to edit_status_coderetreat_url(coderetreat_id)
   end

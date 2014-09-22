@@ -31,6 +31,7 @@ end
 
 Given(/^a coderetreat that has not started$/) do
   @coderetreat =  Coderetreat.create! status: "not_started", location: "Chicago"
+  puts "The coderetreat status when created is #{@coderetreat.status} and id is #{@coderetreat.id}"
 end
 
 When(/^I start the coderetreat$/) do
@@ -39,5 +40,6 @@ When(/^I start the coderetreat$/) do
 end
 
 Then(/^I should see that the coderetreat is in session$/) do
+  puts "The coderetreat status after update is #{@coderetreat.status} for id #{@coderetreat.id}"
   expect(page).to have_css(".in_session .coderetreat", text: @coderetreat.location)
 end
