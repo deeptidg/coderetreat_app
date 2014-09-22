@@ -33,7 +33,7 @@ describe CoderetreatsController do
   describe "PUT /update_status" do
     let(:status_updater){ double(:update_to => nil) }
     before do
-      stub_const("CoderetreatApp::Coderetreats::Status", status_updater)
+     CoderetreatApp::Coderetreats::Status.stub(:update_to)
       allow(status_updater).to receive(:update_to).with("5", "in_session")
     end
 
@@ -43,7 +43,7 @@ describe CoderetreatsController do
     end
 
     it "updates the status of the coderetreat" do
-      allow(status_updater).to receive(:update_to).with("5", "in_session")
+      expect(CoderetreatApp::Coderetreats::Status).to receive(:update_to).with("5", "in_session")
       put :update_status, id: "5", new_status: "in_session"
     end
   end
