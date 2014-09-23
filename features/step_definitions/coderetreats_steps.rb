@@ -35,7 +35,7 @@ Given(/^a coderetreat that has not started$/) do
 end
 
 When(/^I start the coderetreat$/) do
-  visit edit_status_coderetreat_url(@coderetreat)
+  visit edit_coderetreat_status_url(@coderetreat)
   click_on "Start Session"
 end
 
@@ -49,12 +49,11 @@ Given(/^a coderetreat that is in session$/) do
 end
 
 When(/^I start a break for the coderetreat$/) do
-  visit edit_status_coderetreat_url(@coderetreat)
+  visit edit_coderetreat_status_url(@coderetreat)
   click_on "Start Break"
 end
 
 When(/^I go to running coderetreats display page$/) do
-  pending # express the regexp above with the code you wish you had
 end
 
 Then(/^I should see that the coderetreat is on break$/) do
