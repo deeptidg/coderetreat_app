@@ -1,6 +1,6 @@
 require 'coderetreats/presenters/collection'
-
 require 'rails_helper'
+
 describe CoderetreatsController do
   describe "GET /running_today" do
     #it "uses a coderetreat collection presenter" do
@@ -32,6 +32,7 @@ describe CoderetreatsController do
   end
 =end  
 
+=begin  
   describe "PUT /update_status" do
     let(:status_updater){ double(:update_to => nil) }
     before do
@@ -49,4 +50,5 @@ describe CoderetreatsController do
       put :update_status, id: "5", new_status: "in_session"
     end
   end
+=end  
 end
