@@ -13,7 +13,7 @@ describe StatusController do
   describe "PUT /update" do
     let(:status_updater){ double(:update_to => nil) }
     before do
-      CoderetreatApp::Coderetreats::Status.stub(:update_to)
+      allow(CoderetreatApp::Coderetreats::Status).to receive(:update_to)
       allow(status_updater).to receive(:update_to).with("5", "in_session")
     end
 
