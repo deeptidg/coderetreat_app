@@ -16,8 +16,14 @@ module CoderetreatApp
           ["not_started", "in_session", "on_break"]
         end
 
+        def filtered_by_status(status)
+          self.coderetreats.select{|cr| cr.status == status}
+        end
+
         def grouped_by_status(&block)
-          self.class.all_statuses.each {|status| yield status, [] }
+          self.class.all_statuses.each do |status|
+            yield status, filtered_by_status(status)
+          end
         end
 
         self.all_statuses.each do |status|
@@ -27,7 +33,7 @@ module CoderetreatApp
         end
 
         def in_status(status, &block)
-          self.coderetreats.select{|cr| cr.status == status}.each(&block)
+          filtered_by_status(status).each(&block)
         end
 
       end
