@@ -1,3 +1,5 @@
+require 'coderetreats/statuses'
+
 class Coderetreat < ActiveRecord::Base
   attr_accessor :location, :status
 
@@ -7,7 +9,7 @@ class Coderetreat < ActiveRecord::Base
   end
 
   def available_next_statuses
-    ["not_started", "in_session", "on_break"] - [self.status]
+    CoderetreatApp::Coderetreats::Statuses.all - [self.status]
   end
 
   def update_status(new_status)
