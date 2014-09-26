@@ -1,11 +1,9 @@
 %h2 There are no coderetreats running today.
 
--@coderetreats.grouped_by_status do |status, coderetreats|
+- @coderetreats.grouped_by_status do |status, coderetreats|
   %section.coderetreats{"class" => status}
     %header
-      %h2=status.titleize
+      %h2= status.titleize
       %ul
-        -coderetreats.each do |coderetreat|
-          %li.coderetreat=coderetreat.location
-
-
+        - coderetreats.each do |coderetreat|
+          %li.coderetreat= coderetreat.location

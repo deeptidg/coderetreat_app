@@ -23,7 +23,6 @@ end
 Then(/^I should see the running coderetreats grouped by status$/) do
   @coderetreats.each do |coderetreat|
     within(".#{coderetreat.status}") do
-      puts "Status = #{coderetreat.status}, Location= #{coderetreat.location}"
       expect(page).to have_css(".coderetreat", text: coderetreat.location)
     end
   end
@@ -31,7 +30,6 @@ end
 
 Given(/^a coderetreat that has not started$/) do
   @coderetreat =  Coderetreat.create! status: "not_started", location: "Chicago"
-  puts "The coderetreat status when created is #{@coderetreat.status} and id is #{@coderetreat.id}"
 end
 
 When(/^I start the coderetreat$/) do
@@ -40,7 +38,6 @@ When(/^I start the coderetreat$/) do
 end
 
 Then(/^I should see that the coderetreat is in session$/) do
-  puts "The coderetreat status after update is #{@coderetreat.status} for id #{@coderetreat.id}"
   expect(page).to have_css(".in_session .coderetreat", text: @coderetreat.location)
 end
 
@@ -53,8 +50,6 @@ When(/^I start a break for the coderetreat$/) do
   click_on "On Break"
 end
 
-When(/^I go to running coderetreats display page$/) do
-end
 
 Then(/^I should see that the coderetreat is on break$/) do
   expect(page).to have_css(".on_break .coderetreat", text: @coderetreat.location)

@@ -3,14 +3,7 @@ require 'coderetreats/presenters/collection'
 
 module CoderetreatApp
   module Coderetreats
-    def self.running_today
-=begin      
-      coderetreats = [
-      Coderetreat.new("not_started", "Chicago"),
-      Coderetreat.new("not_started", "Seattle"),
-      Coderetreat.new("in_session", "Berlin")
-      ]
-=end      
+    def self.running_today    
       Presenters::Collection.for(::Coderetreat.running_today)
     end
   end
